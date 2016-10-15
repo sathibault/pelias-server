@@ -1,4 +1,4 @@
-# pelias
+# Pelias Server
 
 Docker-based pelias install based largely on https://github.com/helvalius/pelias-docker.
 
@@ -45,4 +45,11 @@ $ pelias geonames import -m
 $ pelias geonames import -i all
 ```
 
-This will take a long time.
+This will take a loooong time.  Watch the indexed status which will
+reach > 11M.  Elasticsearch is not populated with geonames.
+
+### Running the API.
+
+I don't use the API.  To use do that, the pelias/Dockefile needs to be
+upgraded to node:4 and start the servier with the `pelias api start`
+command.

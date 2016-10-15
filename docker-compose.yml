@@ -3,8 +3,8 @@ services:
   elasticsearch:
     build: es
     ports:
-     - 9200
-     - 9300
+     - "9200:9200"
+     - "9300:9300"
     volumes:
      - ./data/elasticsearch:/var/lib/elasticsearch/pelias_data
   whosonfirst:
