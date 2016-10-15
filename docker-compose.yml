@@ -1,0 +1,25 @@
+version: '2'
+services:
+  elasticsearch:
+    build: es
+    ports:
+     - 9200
+     - 9300
+    volumes:
+     - ./data/elasticsearch:/var/lib/elasticsearch/pelias_data
+  whosonfirst:
+    build: whosonfirst
+    image: pelias-whosonfirst-data
+    volumes:
+      - ./data/whosonfirst:/mnt/pelias/whosonfirst
+  geonames:
+    build: geonames
+    image: pelias-geonames-data
+    volumes:
+      - ./data/geonames/data:/mnt/data/geonames/data
+  pelias:
+    build: pelias
+    links:
+      - elasticsearch
+    volumes:
+      - ./data:/mnt/data
